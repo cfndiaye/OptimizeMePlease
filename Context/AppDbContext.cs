@@ -7,7 +7,8 @@ namespace OptimizeMePlease.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer("Server=localhost;Database=OptimizeMePlease;Trusted_Connection=True;Integrated Security=true;MultipleActiveResultSets=true");
+            //options.UseSqlServer("Server=localhost;Database=OptimizeMePlease;Trusted_Connection=True;Integrated Security=true;MultipleActiveResultSets=true");
+            options.UseSqlServer("Server=sql.bsite.net\\MSSQL2016;Database=cfndiaye_OptimizeMePlease;User ID=cfndiaye_OptimizeMePlease;Password=58781681;Trusted_Connection=True;Integrated Security=false;MultipleActiveResultSets=true");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

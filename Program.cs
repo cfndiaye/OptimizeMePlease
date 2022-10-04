@@ -25,20 +25,22 @@ namespace OptimizeMePlease
         {
             //Debugging 
             BenchmarkService benchmarkService = new BenchmarkService();
-            benchmarkService.GetAuthors();
+            var auths = benchmarkService.GetAuthors();
 
+           
             //Comment me after first execution, please.
             //IWillPopulateData();
 
-            //BenchmarkRunner.Run<BenchmarkService>();
+            BenchmarkRunner.Run<BenchmarkService>();
         }
 
         public static void IWillPopulateData()
         {
-            string sqlConnectionString = @"Server=localhost;Database=OptimizeMePlease;Trusted_Connection=True;Integrated Security=true;MultipleActiveResultSets=true";
+            string sqlConnectionString = @"Server=sql.bsite.net\MSSQL2016;Database=cfndiaye_OptimizeMePlease;User ID=cfndiaye_OptimizeMePlease;Password=58781681;Trusted_Connection=True;Integrated Security=false;MultipleActiveResultSets=true";
 
             string workingDirectory = Environment.CurrentDirectory;
-            string path = Path.Combine(Directory.GetParent(workingDirectory).Parent.Parent.FullName, @"script.sql");
+            //string path = Path.Combine(Directory.GetParent(workingDirectory).FullName, @"script.sql");
+            string path = Path.Combine(workingDirectory, @"script.sql");
             string script = File.ReadAllText(path);
 
             SqlConnection conn = new SqlConnection(sqlConnectionString);
